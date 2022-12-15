@@ -10,7 +10,7 @@ function squareRandomColor(parent, numGen){
 }
 
 function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.round(Math.random() * (max - min + 1) + min);
 }
 
 var colorArr = ['red', 'green', 'blue', 'purple', 'yellow', 'white', 'black', 'grey', 'aqua', 'aquamarine', 'blueviolet', 'orange', 'brown', 'seagreen', 'darkblue', 'cyan', 'bisque', 'crimson'];
