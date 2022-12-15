@@ -1,36 +1,28 @@
 // Your JS goes here
-function squareWhite(parent){
+function squareRandomColor(parent, numGen){
     let square = document.createElement('div');
     square.style.float = 'left';
     square.style.paddingBottom = '11.1%';
     square.style.width = '11.1%';
     square.style.height = '11.1%';
-    square.style.backgroundColor = 'white';
+    square.style.backgroundColor = colorArr[numGen(0, colorArr.length-1)];
     parent.appendChild(square)
 }
 
-function squarePurple(parent){
-    let square = document.createElement('div');
-    square.style.float = 'left';
-    square.style.paddingBottom = '11.1%';
-    square.style.width = '11.1%';
-    square.style.height = '11.1%';
-    square.style.backgroundColor = 'purple';
-    parent.appendChild(square)
+function randomNumber(min, max) {
+    return Math.round(Math.random() * (max - min + 1) + min);
 }
+
+function flashingSquare() {
+    for (i=0; i<75; i++) {
+        squareRandomColor(body, randomNumber);
+    }    
+}
+
+var colorArr = ['red', 'green', 'blue', 'purple', 'yellow', 'white', 'black', 'grey', 'aqua', 'aquamarine', 'blueviolet', 'orange', 'brown', 'seagreen', 'darkblue', 'cyan', 'bisque', 'crimson'];
 
 const body = document.querySelector('body');
 body.style.display = 'flex';
 body.style.flexWrap = 'wrap';
 
-let overlay = document.createElement('div');
-overlay.style.position = 'fixed';
-overlay.style.width = '100%';
-overlay.style.height = '100%';
-overlay.style.backgroundImage = 'linear-gradient(to bottom, rgba(0, 0, 255, 0.80), rgba(255, 255, 255, 0.50))';
-body.appendChild(overlay);
-
-for (i=0; i<30; i++) {
-        squareWhite(body);
-        squarePurple(body);
-}
+setInterval(flashingSquare(), 1000);
