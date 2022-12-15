@@ -1,12 +1,11 @@
-// Your JS goes here
-function squareRandomColor(parent, numGen){
+function squareRandomColor(){
     let square = document.createElement('div');
     square.style.float = 'left';
     square.style.paddingBottom = '11.1%';
     square.style.width = '11.1%';
     square.style.height = '11.1%';
-    square.style.backgroundColor = colorArr[numGen(0, colorArr.length-1)];
-    parent.appendChild(square)
+    square.style.backgroundColor = colorArr[randomNumber(0, colorArr.length-1)];
+    body.appendChild(square)
 }
 
 function randomNumber(min, max) {
@@ -20,5 +19,5 @@ body.style.display = 'flex';
 body.style.flexWrap = 'wrap';
 
 for (i=0; i<100; i++) {
-    squareRandomColor(body, randomNumber);
+    squareRandomColor();
 }
