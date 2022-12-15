@@ -1,22 +1,21 @@
-// Your JS goes here
-function squareWhite(parent){
+function squareWhite(){
     let square = document.createElement('div');
     square.style.float = 'left';
     square.style.paddingBottom = '11.1%';
     square.style.width = '11.1%';
     square.style.height = '11.1%';
     square.style.backgroundColor = 'white';
-    parent.appendChild(square)
+    body.appendChild(square)
 }
 
-function squarePurple(parent){
+function squarePurple(){
     let square = document.createElement('div');
     square.style.float = 'left';
     square.style.paddingBottom = '11.1%';
     square.style.width = '11.1%';
     square.style.height = '11.1%';
     square.style.backgroundColor = 'purple';
-    parent.appendChild(square)
+    body.appendChild(square)
 }
 
 const body = document.querySelector('body');
