@@ -1,28 +1,33 @@
-function squareBlack(){
+function makeCanvas(num) {
+    document.body.style.display = 'flex';
+    document.body.style.flexWrap = 'wrap';
+    
+    for (i=0; i<num; i++) {
+        drawSquares();
+    }
+}
+
+function drawSquares(){
     let square = document.createElement('div');
+    square.classList.add('squares');
     square.style.float = 'left';
-    square.style.paddingBottom = '11.1%';
-    square.style.width = '11.1%';
-    square.style.height = '11.1%';
-    square.style.backgroundColor = 'black';
-    body.appendChild(square)
+    square.style.paddingBottom = '1%';
+    square.style.width = '1%';
+    square.style.height = '1%';
+    square.style.backgroundColor = 'white';
+    square.addEventListener('mouseenter', (e) => {
+        e.target.style.backgroundColor = randomColors();
+    })
+    document.body.appendChild(square);
 }
 
-function squareRed(){
-    let square = document.createElement('div');
-    square.style.float = 'left';
-    square.style.paddingBottom = '11.1%';
-    square.style.width = '11.1%';
-    square.style.height = '11.1%';
-    square.style.backgroundColor = 'red';
-    body.appendChild(square)
+function randomColors() {
+    function randomNumber(min, max) {
+        return Math.round(Math.random() * (max - min + 1) + min);
+    }
+    
+    var colorArr = ['red', 'green', 'blue', 'purple', 'yellow', 'white', 'black', 'grey', 'aqua', 'aquamarine', 'blueviolet', 'orange', 'brown', 'seagreen', 'darkblue', 'cyan', 'bisque', 'crimson'];
+    return colorArr[randomNumber(0, colorArr.length-1)];
 }
 
-const body = document.querySelector('body');
-body.style.display = 'flex';
-body.style.flexWrap = 'wrap';
-
-for (i=0; i<50; i++) {
-        squareBlack(body);
-        squareRed(body);
-}
+makeCanvas(8000)
